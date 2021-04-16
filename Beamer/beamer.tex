@@ -1,0 +1,158 @@
+\documentclass[12pt]{beamer}
+%==================================FONTS============================================================
+% \usepackage{libertineRoman}
+% \usepackage{biolinum}
+% \usepackage{libertinust1math}
+% \usepackage{inconsolata}
+\usepackage[sfdefault,lining]{FiraSans}
+\usepackage{FiraMono}
+\usepackage[T1]{fontenc}
+%===================================================================================================
+
+%==================================GENERAL PACKAGES=================================================
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{fancyref}
+\usepackage{float}
+\usepackage{hyperref}
+
+%===================================================================================================
+
+%==================================GRAPHICS=========================================================
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\graphicspath{{images/}}
+%===================================================================================================
+
+%==================================LSTLISTINGS======================================================
+\usepackage{listings}
+
+\input{colors.tex}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{ayu_light_background},   
+  commentstyle=\color{ayu_light_comment},
+  keywordstyle=\color{ayu_light_keyword},
+  numberstyle=\scriptsize\ttfamily\color{ayu_light_foreground},
+  stringstyle=\color{ayu_light_string},
+  basicstyle=\small\color{black}\ttfamily,
+  breakatwhitespace=false,     
+  breaklines=true,         
+  captionpos=b,          
+  keepspaces=true,      
+  numbers=left,          
+  numbersep=5pt,          
+  showspaces=false,        
+  showstringspaces=false,
+  showtabs=false,          
+  tabsize=2,
+  language=SQL
+}
+
+\lstset{
+  style=mystyle,
+  literate={á}{{\'a}}1
+  {é}{{\'e}}1
+  {í}{{\'i}}1
+  {ó}{{\'o}}1
+  {ú}{{\'u}}1
+  {ñ}{{\~n}}1
+}
+\lstset {
+  morekeywords={
+  }
+}
+\lstset{
+  emph=[1]{
+  },
+  emphstyle=[1]{\color{ayu_light_variable}\bfseries}
+}
+\lstset{
+  emph=[2]{
+  },
+  emphstyle=[2]{\color{ayu_light_number}}
+}
+%===================================================================================================
+
+%==================================TIKZ=============================================================
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, babel, shadows.blur}
+
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{listings,skins}
+%===================================================================================================
+
+%==================================PAGE SETUP=======================================================
+\usepackage{geometry}
+%\setlength{\parskip}{1em}
+%\linespread{1.15}
+
+\usetheme{Frankfurt}
+\setbeamercolor{palette primary}{bg=ayu_mirage_background,fg=ayu_mirage_foreground}          % Beamer for the title and such
+\setbeamercolor{palette secondary}{bg=ayu_mirage_ui_light,fg=ayu_mirage_ui}
+\setbeamercolor{palette tertiary}{bg=ayu_mirage_ui_light,fg=ayu_mirage_ui}
+\setbeamercolor{palette quaternary}{bg=ayu_mirage_background_light,fg=white}       % Top banner
+\setbeamercolor{structure}{fg=ayu_light_entity} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=ayu_mirage_ui} % TOC sections
+%===================================================================================================
+
+%=====================================CUSTOM COMMANDS===============================================
+\newcounter{code}
+
+\newtcbox{\db}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
+  right=0mm,left=4mm,arc=1pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  colframe=ayu_light_variable,coltext=ayu_light_variable,colback=ayu_light_background,
+  overlay={\begin{tcbclipinterior}\fill[ayu_light_red] (frame.south west)
+    rectangle node[text=white,font=\sffamily\bfseries\tiny,rotate=90] {DB} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
+
+\newtcblisting{mylisting}[2][]{
+    arc=0pt, outer arc=0pt,
+    listing only, 
+    listing style=mystyle,
+    title=#2,
+    #1
+    }
+
+%===================================================================================================
+
+%=====================================PREAMBLE======================================================
+\title{\textbf{Title}}
+\subtitle{
+  Subtitle
+}
+\author[Luis Alejandro]{
+  Author\\
+  %\and
+  \footnotesize Id\\
+  \footnotesize Email
+}
+\institute[UPTC]{
+  University\\
+  Department\\
+  \begin{multicols}{2}
+    \vspace*{-2mm}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.3\textwidth]{color_uptc.pdf}
+    \end{figure}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[height=0.2\textwidth]{logo.png}
+    \end{figure}
+  \end{multicols}
+}
+\date{}
+%===================================================================================================
+
+\begin{document}
+
+\frame{\titlepage}
+
+% \section*{Bibliografía}
+
+% \begin{thebibliography}{newapa}
+% \end{thebibliography}
+\end{document}

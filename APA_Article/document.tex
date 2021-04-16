@@ -1,0 +1,158 @@
+\documentclass[stu,hidelinks,donotrepeattitle,floatsintext]{apa7}
+%==================================FONTS============================================================
+\usepackage[T1]{fontenc}
+\usepackage{libertineRoman}
+\usepackage{biolinum}
+\usepackage{libertinust1math}
+\usepackage{inconsolata}
+%===================================================================================================
+
+%==================================GENERAL PACKAGES=================================================
+% \usepackage[hidelinks=true]{hyperref}
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{pgfornament}
+\usepackage{float}
+\usepackage{url}
+\usepackage{enumitem}
+
+\usepackage[nottoc]{tocbibind}
+%===================================================================================================
+
+%==================================CITATION PACKAGES================================================
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+%===================================================================================================
+
+%==================================GRAPHICS=========================================================
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\graphicspath{{images/}}
+
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % for sections, if you really want! (It is default in report and book class (So you may not need it).
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}} % for subsections, if you really want! (It is default in report and book class (So you may not need it).
+% \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+%===================================================================================================
+
+%==================================LSTLISTINGS======================================================
+\usepackage{listings}
+
+\input{colors.tex}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{ayu_light_background},   
+  commentstyle=\color{ayu_light_comment},
+  keywordstyle=\color{ayu_light_keyword},
+  numberstyle=\scriptsize\ttfamily\color{ayu_light_comment},
+  stringstyle=\color{ayu_light_string},
+  basicstyle=\footnotesize\color{ayu_light_foreground}\ttfamily,
+  breakatwhitespace=false,     
+  breaklines=true,         
+  captionpos=b,          
+  keepspaces=true,      
+  numbers=left,          
+  numbersep=5pt,          
+  showspaces=false,        
+  showstringspaces=false,
+  showtabs=false,          
+  tabsize=2,
+  language=python
+}
+
+\lstset{
+  style=mystyle,
+  literate={á}{{\'a}}1
+  {é}{{\'e}}1
+  {í}{{\'i}}1
+  {ó}{{\'o}}1
+  {ú}{{\'u}}1
+  {ñ}{{\~n}}1
+}
+\lstset {
+  morekeywords={}
+}
+\lstset{
+  emph=[1]{},
+  emphstyle=[1]{\color{ayu_light_variable}\bfseries}
+}
+\lstset{
+  emph=[2]{
+  },
+  emphstyle=[2]{\color{ayu_mirage_entity}}
+}
+%===================================================================================================
+
+%==================================TIKZ=============================================================
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, babel, shadows.blur}
+
+\usepackage[many]{tcolorbox}
+%===================================================================================================
+
+%==================================PAGE SETUP=======================================================
+% \usepackage[margin=2.54cm]{geometry}
+% \setlength{\parskip}{1em}
+% \linespread{1.15}
+%===================================================================================================
+
+%=====================================CUSTOM COMMANDS===============================================
+\newcounter{code}
+\newcounter{diagram}
+\newcounter{screenshot}
+
+\newtcbox{\db}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
+  right=0mm,left=4mm,arc=1pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  colframe=ayu_mirage_variable,coltext=ayu_mirage_variable,colback=ayu_mirage_background,
+  overlay={\begin{tcbclipinterior}\fill[ayu_mirage_red] (frame.south west)
+    rectangle node[text=white,font=\sffamily\bfseries\tiny,rotate=90] {DB} ([xshift=4mm]frame.north west);\end{tcbclipinterior}}}
+
+\newtcbox{\blackbox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.5pt,top=0mm,bottom=0mm,
+  right=0mm,left=0mm,arc=1pt,boxsep=1pt,before upper={\vphantom{dlg}},
+  colframe=ayu_mirage_background,coltext=black,colback=white,drop shadow=black!50!white
+}
+
+\newtcbox{\greenbox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.5pt,top=0mm,bottom=0mm,
+  right=0mm,left=0mm,arc=1pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  colframe=ayu_mirage_background,coltext=black,colback=ayu_mirage_string,drop shadow=ayu_light_green!50!white
+}
+
+\newtcbox{\redbox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.5pt,top=0mm,bottom=0mm,
+  right=0mm,left=0mm,arc=1pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  colframe=ayu_mirage_background,coltext=black,colback=ayu_light_red,drop shadow=red!50!white
+}
+
+\newcommand\longvar[1]{\mathchardef\UrlBreakPenalty=100
+\mathchardef\UrlBigBreakPenalty=100\url{#1}}
+
+%===================================================================================================
+
+%=====================================PREAMBLE======================================================
+\title{
+  title
+}
+\author{
+  Author
+  \vspace*{2em}
+}
+\affiliation{
+  {department, university}
+}
+\course{course}
+\professor{professor}
+\duedate{duedate}
+\shorttitle{}
+
+%===================================================================================================
+
+\begin{document}
+\maketitle
+
+\nocite{*}
+\printbibliography
+
+\end{document}
